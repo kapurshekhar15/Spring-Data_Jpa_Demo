@@ -10,6 +10,7 @@ import java.math.BigInteger;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
+
 @SpringBootTest
 class
 ProductRepositoryTest {
@@ -19,8 +20,7 @@ ProductRepositoryTest {
 
 
     @Test
-    void saveMethod()
-    {
+    void saveMethod() {
         // create product
         Product product = new Product();
         product.setName("product1");
@@ -32,7 +32,7 @@ ProductRepositoryTest {
 
         // save product
 
-       Product savedObject =  productRepository.save(product);
+        Product savedObject = productRepository.save(product);
 
         // display the product info
         System.out.println(savedObject.getId());
@@ -41,8 +41,7 @@ ProductRepositoryTest {
     }
 
     @Test
-    void updateUsingSaveMethod()
-    {
+    void updateUsingSaveMethod() {
         // find or retrieve an entity by id
         Long id = 1L;
         Product product = productRepository.findById(id).get();
@@ -59,15 +58,14 @@ ProductRepositoryTest {
     }
 
     @Test
-    void findByIdMethod()
-    {
+    void findByIdMethod() {
         Long id = 1L;
         Product product = productRepository.findById(id).get();
         System.out.println(product.toString());
     }
 
     @Test
-    void saveAllMethod(){
+    void saveAllMethod() {
 
         // create product
         Product product2 = new Product();
@@ -88,20 +86,20 @@ ProductRepositoryTest {
         product3.setActive(true);
         product3.setImageUrl("product3.png");
 
-        productRepository.saveAll(List.of(product2,product3));
+        productRepository.saveAll(List.of(product2, product3));
 
     }
 
     @Test
-    void findAllMethod(){
+    void findAllMethod() {
 
-       List<Product> products =  productRepository.findAll();
+        List<Product> products = productRepository.findAll();
 
-       products.forEach(p -> System.out.println(p.getName()));
+        products.forEach(p -> System.out.println(p.getName()));
     }
 
     @Test
-    void deleteByIdMethod(){
+    void deleteByIdMethod() {
 
         Long id = 1L;
         productRepository.deleteById(id);
@@ -109,7 +107,7 @@ ProductRepositoryTest {
     }
 
     @Test
-    void deleteMethod(){
+    void deleteMethod() {
 
         // find an entity by id
 
@@ -122,31 +120,32 @@ ProductRepositoryTest {
     }
 
     @Test
-    void deleteAllMethod(){
+    void deleteAllMethod() {
 
-       // productRepository.deleteAll();
+        // productRepository.deleteAll();
 
-       Product product= productRepository.findById(11L).get();
+        Product product = productRepository.findById(11L).get();
 
-       Product product1 =  productRepository.findById(12L).get();
+        Product product1 = productRepository.findById(12L).get();
 
-       productRepository.deleteAll(List.of(product,product1));
+        productRepository.deleteAll(List.of(product, product1));
 
 
     }
 
     @Test
-    void countMethod(){
+    void countMethod() {
 
-       Long count = productRepository.count();
+        Long count = productRepository.count();
         System.out.println(count);
     }
 
     @Test
-    void existById(){
+    void existById() {
         Long id = 13L;
-      boolean result =  productRepository.existsById(id);
+        boolean result = productRepository.existsById(id);
         System.out.println(result);
+
     }
 
 }
