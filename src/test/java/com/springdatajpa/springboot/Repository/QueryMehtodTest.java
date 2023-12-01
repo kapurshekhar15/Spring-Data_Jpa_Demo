@@ -15,7 +15,10 @@ public class QueryMehtodTest {
 
     @Autowired
     private ProductRepository productRepository;
+  
 
+
+    
     @Test
     void findByNameMethod() {
         Product product = productRepository.findByName("product2");
@@ -108,7 +111,7 @@ public class QueryMehtodTest {
         });
     }
 
-
+  // Testing of findByDateCreatedBetweenMethod
     @Test
     void findByDateCreatedBetweenMethod() {
 
